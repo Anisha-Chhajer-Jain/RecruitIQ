@@ -1,41 +1,28 @@
-# Candidate Fit Ranker
+# RecruitIQ (Quantum Syndicates Hackathon Submission)
 
-An AI-powered recruitment pipeline that matches candidate profiles to Job Descriptions (JDs) using a hybrid approach of semantic embeddings, hard-rule scoring, and LLM re-ranking.
+An ultra-fast, entirely local AI recruitment pipeline that matches candidate profiles to Job Descriptions using a heuristic rule engine and semantic embeddings, strictly adhering to hackathon constraints (No Network LLMs).
 
 ## Features
-- **Phase 1: Data Loader** (Parses complex nested candidate JSON/CSV and DOCX JD files).
-- **Phase 2: JD Structurization** (Uses OpenRouter LLMs to extract structured requirements like skills and experience).
-- **Phase 3: Candidate Profiling & Embeddings** (Flattens candidate profiles and uses local HuggingFace `sentence-transformers` to compute semantic similarity against the JD).
-- **Phase 4: Rule Scoring & Hybrid Ranking** (Calculates hard scores for skill overlap, experience fit, career trajectory, and platform activity, then weights them with the semantic score).
-- **Phase 5: LLM Re-Ranking** (Takes the top candidates and uses an LLM to generate a final assessment and a 1-2 sentence justification for their rank).
+- **Phase 1: Heuristic Engine** (Instantly scores 100k candidates against behavioral signals like response rate and explicitly penalizes honeypots).
+- **Phase 2: Semantic Embeddings** (Filters to top 1000 candidates and uses local HuggingFace `sentence-transformers` to compute semantic similarity).
+- **Phase 3: Deterministic Reasoning** (Generates 1-sentence explanations based on extracted candidate facts without relying on LLM APIs).
 
 ## Setup
-1. Ensure Python 3.9+ is installed.
+1. Ensure Python 3.11+ is installed.
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
-   ```
-3. Create a `.env` file in the root directory and add your OpenRouter API key (used for JD parsing and LLM re-ranking):
-   ```
-   OPENROUTER_API_KEY=sk-or-v1-...
-   OPENROUTER_MODEL=anthropic/claude-3-haiku
    ```
 
 ## Usage
 Run the end-to-end pipeline with the following command:
 ```bash
-python main.py --jd path/to/job_description.docx --candidates path/to/sample_candidates.json --top_n 15
+python main.py --candidates path/to/candidates.jsonl
 ```
 
-### Arguments:
-- `--jd`: Path to the Job Description file (supports `.txt` or `.docx`).
-- `--candidates`: Path to the candidate dataset (supports `.csv`, `.json`, `.jsonl`).
-- `--output`: (Optional) Where to save the final ranked output. Defaults to `output/ranked_candidates.csv`.
-- `--top_n`: (Optional) How many of the top candidates from the hybrid ranker to pass to the LLM for final re-ranking and justification generation. Defaults to 15.
-
-## Output Format
-The pipeline outputs a CSV (`output/ranked_candidates.csv`) matching the standard submission format:
+### Output Format
+The pipeline outputs exactly 100 rows matching the standard submission format:
 - `candidate_id`
 - `rank` (1 is the best)
 - `score` (The final hybrid score)
-- `reasoning` (A short justification from the LLM or hybrid fallback)
+- `reasoning` (A dynamically generated reasoning string)
