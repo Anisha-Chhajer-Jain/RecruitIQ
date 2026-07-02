@@ -1,0 +1,70 @@
+# Redrob Hackathon — Submission Metadata
+#
+# Please fill in the missing details marked with "FILL_IN_YOUR_..."
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "Quantum Syndicates"
+
+primary_contact:
+  name: "Hanuman Singh"
+  email: "FILL_IN_YOUR_EMAIL@example.com"
+  phone: "FILL_IN_YOUR_PHONE_NUMBER"
+
+team_members:
+  - name: "Hanuman Singh"
+    email: "FILL_IN_YOUR_EMAIL@example.com"
+    role: "AI Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/FILL_IN_YOUR_USERNAME/CandidateFitRanker"
+
+sandbox_link: "FILL_IN_YOUR_SANDBOX_LINK_HERE" 
+# Example: "https://huggingface.co/spaces/USERNAME/redrob-ranker"
+
+reproduce_command: "python main.py --candidates ./candidates.jsonl"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Windows Box"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Other"
+
+ai_usage_summary: |
+  Used DeepMind's Antigravity AI coding assistant to architect the pipeline, refactor for Hackathon compliance, and generate heuristic rules. No candidate data was fed to external LLMs during the ranking phase.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  We implemented a high-performance two-pass offline ranking system.
+  Pass 1: A lightweight heuristic rule engine instantly evaluates all 100,000 candidates. It extracts behavioral signals (response rate, completeness) as a multiplier, and explicitly penalizes honeypots (expert skills with 0 months used) and JD disqualifiers (Title Chasers, Consulting-only backgrounds).
+  Pass 2: We take the top 1000 candidates from Pass 1 and generate semantic embeddings using 'all-MiniLM-L6-v2' to calculate cosine similarity against the parsed JD requirements. 
+  Finally, we combine the scores, sort to find the top 100, and generate dynamic reasoning strings using python logic. The entire pipeline executes in ~36 seconds on CPU.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.*
+
+# Output and Data
+output/
+data/
+sample_data/
+*.csv
+*.jsonl
+*.jsonl.gz
+*.json
+*.docx
+
+# Exclude submission CSV specifically from being ignored if needed, 
+# but generally best to not commit outputs.
+!Quantum_Syndicates.csv
+!submission_metadata.yaml
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
