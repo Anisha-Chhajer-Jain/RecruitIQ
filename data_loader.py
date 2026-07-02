@@ -52,10 +52,7 @@ def clean_candidates(df: pd.DataFrame) -> pd.DataFrame:
     # Text normalization: strip whitespace for string columns
     for col in df.columns:
         if df[col].dtype == 'object':
-            # Convert to string and strip whitespace
-            # Pandas read_csv might read empty as NaN, handle that first
-            df[col] = df[col].fillna('')
-            df[col] = df[col].astype(str).str.strip()
+            df[col] = df[col].apply(lambda x: x.strip() if isinstance(x, str) else x)
             
     # For numerical columns, fill NaNs with 0
     num_cols = df.select_dtypes(include=['number']).columns
