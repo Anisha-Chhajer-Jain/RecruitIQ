@@ -8,19 +8,31 @@
 team_name: "Quantum Syndicates"
 
 primary_contact:
-  name: "Hanuman Singh"
-  email: "FILL_IN_YOUR_EMAIL@example.com"
-  phone: "FILL_IN_YOUR_PHONE_NUMBER"
+  name: "Chitt Hirpara"
+  email: "chitthirpara@gmail.com"
+  phone: "+91 820 076 2562"
 
 team_members:
+  - name: "Chitt Hirpara"
+    email: "chitthirpara@gmail.com"
+    role: "Team Lead"
+
   - name: "Hanuman Singh"
-    email: "FILL_IN_YOUR_EMAIL@example.com"
-    role: "AI Engineer"
+    email: "hanumanrajpurohit008@gmail.com"
+    role: "Machine Learning Engineer"
+
+  - name: "Anisha Chhajer"
+    email: "anishachhajer16@gmail.com"
+    role: "Data Engineer"
+
+  - name: "Prashant Parmar"
+    email: "prashantparmar9919@gmail.com"
+    role: "Backend Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/FILL_IN_YOUR_USERNAME/CandidateFitRanker"
+github_repo: "https://github.com/Anisha-Chhajer-Jain/RecruitIQ"
 
 sandbox_link: "https://huggingface.co/spaces/hanumanraj07/RecruitIQ" 
 # Example: "https://huggingface.co/spaces/USERNAME/redrob-ranker"
