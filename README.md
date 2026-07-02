@@ -1,3 +1,12 @@
+---
+title: RecruitIQ Candidate Ranker
+emoji: ??
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+app_file: app.py
+pinned: false
+---
 # RecruitIQ (Quantum Syndicates Hackathon Submission)
 
 An ultra-fast, entirely local AI recruitment pipeline that matches candidate profiles to Job Descriptions using a heuristic rule engine and semantic embeddings, strictly adhering to hackathon constraints (No Network LLMs).
@@ -26,3 +35,4 @@ The pipeline outputs exactly 100 rows matching the standard submission format:
 - `rank` (1 is the best)
 - `score` (The final hybrid score)
 - `reasoning` (A dynamically generated reasoning string)
+

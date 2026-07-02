@@ -22,7 +22,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/FILL_IN_YOUR_USERNAME/CandidateFitRanker"
 
-sandbox_link: "FILL_IN_YOUR_SANDBOX_LINK_HERE" 
+sandbox_link: "https://huggingface.co/spaces/hanumanraj07/RecruitIQ" 
 # Example: "https://huggingface.co/spaces/USERNAME/redrob-ranker"
 
 reproduce_command: "python main.py --candidates ./candidates.jsonl"
