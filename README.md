@@ -1,6 +1,6 @@
 ---
 title: RecruitIQ Candidate Ranker
-emoji: ??
+emoji: 📈
 colorFrom: blue
 colorTo: indigo
 sdk: gradio
