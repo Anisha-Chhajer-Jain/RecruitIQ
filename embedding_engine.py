@@ -11,8 +11,8 @@ _model = None
 def get_model():
     global _model
     if _model is None:
-        print(f"Loading sentence-transformers model '{MODEL_NAME}'... (this may take a moment on first run)")
-        _model = SentenceTransformer(MODEL_NAME)
+        print("Loading sentence-transformers model 'all-MiniLM-L6-v2' from local cache...")
+        _model = SentenceTransformer('model_cache/all-MiniLM-L6-v2')
     return _model
 
 def compute_semantic_scores(jd_json_path: str, df: pd.DataFrame) -> pd.DataFrame:
